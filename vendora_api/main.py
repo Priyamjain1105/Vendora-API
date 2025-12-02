@@ -4,4 +4,7 @@ app = FastAPI()
 
 @app.get("/")
 async def health_check():
-		return "The Health Check is Successful!"
+		return {
+			"Message":"Welcome To Vendora API Connect",
+            "Health Status":"OK"
+		}
