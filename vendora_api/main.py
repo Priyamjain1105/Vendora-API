@@ -1,10 +1,15 @@
 from fastapi import FastAPI
+import models
+from database import engine
+from routers import vendor
+
 
 app = FastAPI()
 
-@app.get("/")
-async def health_check():
-		return {
-			"Message":"Welcome To Vendora API Connect",
-            "Health Status":"OK"
-		}
+
+
+
+models.Base.metadata.create_all(bind=engine)
+
+app.include_router(vendor.router)
+
