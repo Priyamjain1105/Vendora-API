@@ -3,11 +3,7 @@ import models
 from database import engine
 from routers import vendor
 
-
 app = FastAPI()
-
-
-
 
 models.Base.metadata.create_all(bind=engine)
 
